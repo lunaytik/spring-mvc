@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Tasks</title>
+    </head>
+    <body>
+        <h1>Task List</h1>
+        <div>
+            <a th:href="@{/logout}">Logout</a>
+        </div>
+        <a th:href="@{/tasks/new}">New</a>
+        <ul>
+            <li th:each="task : ${tasks}">
+                <span th:text="${task.title}">Task Title</span>
+                <a th:href="@{/tasks/{id}/edit(id=${task.id})}">Edit</a>
+                <form th:action="@{/tasks/{id}/delete(id=${task.id})}" method="post" style="display:inline">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        </ul>
+    </body>
+</html>
