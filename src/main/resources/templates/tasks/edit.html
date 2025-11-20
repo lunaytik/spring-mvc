@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Edit Task</title>
+    </head>
+    <body>
+        <h1>Edit Task</h1>
+        <form th:action="@{/tasks/{id}(id=${task.id})}" th:object="${task}" method="post">
+            <label>Title: <input type="text" th:field="*{title}"/></label>
+            <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+            <label>Done: <input type="checkbox" th:field="*{done}"/></label>
+            <button type="submit">Update</button>
+        </form>
+    </body>
+</html>
