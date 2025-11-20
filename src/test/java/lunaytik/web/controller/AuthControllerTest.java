@@ -62,8 +62,8 @@ class AuthControllerTest {
         mockMvc.perform(post("/register")
                         .param("username", "john")
                         .param("password", "secret"))
-                .andExpect(status().isOk())             // revient sur la page car erreur
-                .andExpect(view().name("auth/register"))    // tu peux adapter selon ton comportement
+                .andExpect(status().isOk())
+                .andExpect(view().name("auth/register"))
                 .andExpect(model().attributeExists("error"));
     }
 
